@@ -1,0 +1,27 @@
+﻿@model CodeFirstOnetoMany.Data.User
+
+<h2>User Details with Roles</h2>
+
+<div>
+    <p><strong>User ID:</strong> @Model.UserId</p>
+    <p><strong>User Name:</strong> @Model.UserName</p>
+</div>
+
+@if (Model.UserRoles.Any())
+{
+    <div>
+        <h3>Roles:</h3>
+        <ul>
+            @foreach (var role in Model.UserRoles)
+            {
+                <li>@role.Role.RoleName</li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <p>No roles assigned to this user.</p>
+}
+
+<a asp-controller="Home" asp-action="Index">Back to Home</a>
